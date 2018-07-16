@@ -1,0 +1,47 @@
+<div class="left-content">
+  <div class="list-post">
+    <% if @posts.blank? %>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Don't have any post!</strong>
+      </div>
+    <% else %>
+      <% @posts.each do |post| %>
+        <div class="item-post">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="item-img">
+                <%= default_img post.image %>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="item-content">
+                <h4 class="item-title">
+                  <%= link_to post.title, post_path(post) %>
+                </h4>
+                <p class="item-descripion">
+                  <%= post.description %>
+                </p>
+                <p class="time"><%= convert_date post.updated_at %></p>
+                <div class="user-info">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="link-post">
+                        <i class="fa fa-edit"><span><%= link_to post.link, post.link %></span></i>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="name-user">
+                        <i class="fa fa-user"><span><%= post.user.username %></span></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

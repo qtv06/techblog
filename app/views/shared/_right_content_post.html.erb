@@ -1,0 +1,41 @@
+<div class="right-content">
+  <div class="tb-block">
+    <div class="tb-block-head">
+      <h4><span>Hot Authors</span></h4>
+    </div>
+    <div class="item-author">
+      <% @users.each do |user| %>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="img-user">
+              <%= gravatar_for user %>
+            </div>
+            <div class="btn-follow">
+              Follow
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="infor-user">
+              <p class="name"><%= user.username %></p>
+              <p class="email"><%= user.email %></p>
+              <p><i class="fa fa-edit" data-toggle="tooltip" data-placement="top" title="Posts"></i><%= user.count %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="tb-block">
+    <div class="tb-block-head">
+      <h4><span>Tags</span></h4>
+    </div>
+    <div class="tags">
+      <% @tags.each do |tag| %>
+        <div class="item-tag">
+          <span class="title-tag"><%= link_to tag.tag_name, tag_path(tag) %> </span>
+          <span class="number-tag"><%= tag.count %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

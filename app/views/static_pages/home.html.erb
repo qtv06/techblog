@@ -1,0 +1,57 @@
+<div class="row">
+  <% @categories.each do |category| %>
+    <% first_post = category.posts.first %>
+    <div class="col-md-4">
+      <div class="tb-block">
+        <div class="tb-block-head">
+          <h4><span><%= category.category_name %></span> Posts</h4>
+        </div>
+        <div class="tb-block-main">
+          <div class="tb-block-main-img">
+            <%= image_tag first_post.image %>
+          </div>
+          <div class="tb-block-main-content">
+            <p class="break-word"><%= link_to first_post.title, "#" %></p>
+            <div class="row">
+              <div class="user-info">
+                <div class="col-md-6">
+                  <div class="link-post">
+                    <i class="fa fa-edit"><span><%= link_to first_post.link, first_post.link %></span></i>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="name-user">
+                    <i class="fa fa-user"><span><%= first_post.user.username %></span></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="break-word"><%= first_post.description %></p>
+          </div>
+          <hr>
+          <div class="tb-block-main-release">
+            <% Post.get_all_post_exept_first_post(category.id, category.posts.first.id).each do |post| %>
+              <div class="tb-block-main-release-item">
+                <p class="nowrap"><%= link_to post.title, "#" %></p>
+                <div class="row">
+                  <div class="user-info">
+                    <div class="col-md-6">
+                      <div class="link-post">
+                        <i class="fa fa-edit"><span><%= link_to post.link, post.link %></span></i>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="name-user">
+                        <i class="fa fa-user"><span><%= post.user.username %></span></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
