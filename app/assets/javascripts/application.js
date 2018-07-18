@@ -13,6 +13,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
+//= require jquery-ui
 //= require bootstrap-sprockets
+//= require ckeditor/init
+//= require htmlsortable
 //= require turbolinks
 //= require_tree .

@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :setup
 
+  def count_post
+    @total_post = User.number_post(current_user.id)
+  end
+
   protected
 
   def setup

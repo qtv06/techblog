@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :count_post
   def show
-    if params[:id]
-      @posts = current_user
+    @posts = current_user.posts
   end
 end

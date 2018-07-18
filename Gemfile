@@ -14,9 +14,13 @@ gem "jbuilder", "~> 2.5"
 gem "rubocop", "~> 0.51.0", require: false
 gem "bootstrap-sass", "~> 3.3", ">= 3.3.7"
 gem "jquery-rails"
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.4"
 gem "faker", "~> 1.6", ">= 1.6.3"
 gem "devise"
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'ckeditor'
 # gem "bcrypt", "~> 3.1.7"
 # gem "mini_magick", "~> 4.8"
 # gem "capistrano-rails", group: :development

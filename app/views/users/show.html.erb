@@ -1,2 +1,45 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="left-content">
+  <div class="list-post">
+    <% if @posts.blank? %>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Don't have any post!</strong>
+      </div>
+    <% else %>
+      <% @posts.each do |post| %>
+        <div class="item-post item-id-<%= post.id %>">
+          <div class="row">
+            <div class="col-md-1">
+                <div class="small-avatar">
+                  <%= gravatar_for current_user, {size: 50} %>
+                </div>
+            </div>
+            <div class="col-md-11">
+              <div class="item-content">
+                <p class="name-user"><%= current_user.username %></p>
+                <h4 class="item-title">
+                  <%= link_to post.title, post_path(post) %>
+                </h4>
+                <p class="time"><%= convert_date post.updated_at %></p>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placement="top" title="Actions"><b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Delete Post", post, method: :delete, data: {confirm: "Are you sure?"}, remote: true %></li>
+                    <li><a href="#">Edit post</li>
+                  </ul>
+                </li>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="right-content">
+  <ul class="profile-stats">
+    <li class="number-post"><p>Posts</p><span><%= @total_post %></span></li>
+    <li><p>Followers</p><span>30</span></li>
+    <li><p>Following users</p><span>30</span></li>
+  </ul>
+</div>

@@ -19,4 +19,11 @@ $(document).on('turbolinks:load', function() {
     }
     $(this).addClass('li-active');
   });
+
+  $('.list-comment').on('click', 'i', function(event) {
+    /* Act on the event */
+    $(this).parent().parent().parent().find('.comment-content').css("display", "none");
+    $(this).parent().parent().parent().find('.form-edit').slideToggle("slow");
+  });
+
 });

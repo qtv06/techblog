@@ -1,0 +1,26 @@
+<% if comments.reverse.count > 0 %>
+  <div class="list-comment">
+    <% comments.each do |comment| %>
+      <% if comment.user %>
+        <div class="item-comment item-comment-<%= comment.id %>">
+          <p><%= gravatar_for(comment.user, {size: 50}) %><span class="name-user"><%= comment.user.username %></span> <span class="time-post"><%= convert_datetime comment.created_at if comment %></span></p>
+          <p class="comment-content"><%= comment.content %></p>
+          <% if comment.user == current_user %>
+            <div class="form-edit">
+              <%= form_for [@post, comment], remote: true do |f| %>
+                <%= f.text_area :content, placeholder: "Say some thing...", rows: "5", class: "form-control text_area" %>
+                <div class="row">
+                  <%= f.submit "Save comment", class: "btn btn-info btn-save" %>
+                </div>
+              <% end %>
+
+            </div>
+            <div class="row">
+              <p class="icon"><i class="edit-post glyphicon glyphicon-pencil"></i> <%= link_to "", post_comment_path(@post, comment), method: :delete,data: {confirm: "Are you sure?"}, remote: true, class: "fa fa-trash"%></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

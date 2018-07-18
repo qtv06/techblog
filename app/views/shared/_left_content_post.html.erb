@@ -1,5 +1,5 @@
 <div class="left-content">
-  <div class="list-post">
+  <div class="list-post sortable">
     <% if @posts.blank? %>
       <div class="alert alert-warning">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -11,7 +11,7 @@
           <div class="row">
             <div class="col-md-5">
               <div class="item-img">
-                <%= default_img post.image %>
+                <%= image_tag post.image.url %>
               </div>
             </div>
             <div class="col-md-7">
@@ -22,7 +22,7 @@
                 <p class="item-descripion">
                   <%= post.description %>
                 </p>
-                <p class="time"><%= convert_date post.updated_at %></p>
+                <p class="time"><%= convert_date post.updated_at %> <span style="margin-left: 10px;"><i class="fa fa-comments"> <%= post.comments.count %></i></span></p>
                 <div class="user-info">
                   <div class="row">
                     <div class="col-md-6">

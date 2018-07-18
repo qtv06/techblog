@@ -3,6 +3,10 @@ module ApplicationHelper
     timestamp.strftime("%b %d, %Y")
   end
 
+  def convert_datetime timestamp
+    timestamp.strftime("%b %d, %Y %H:%M:%p")
+  end
+
   def default_img img_string
     if img_string.blank?
       img_string = "logo.png"
