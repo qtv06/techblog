@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :categories, only: :show
   resources :posts do
     resources :comments
+    resources :post_clips, only: :create
   end
   resources :tags, only: :show
   resources :users, only: :show

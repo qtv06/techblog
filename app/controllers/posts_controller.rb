@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_post, only: %i(show destroy)
   before_action :count_post, only: :destroy
   def index
@@ -13,8 +12,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    debugger
     @posts_related = Post.post_related @post.category_id
+    @user_cliped = PostClip.user_cliped @post.id
+    @post_clip_saved = PostClip.saved_by(@post.id, current_user.id)
   end
 
   def new

@@ -322,3 +322,35 @@
   margin-right: 5px;
   margin-top: 10px;
 }
+.infor-author{
+  padding: 0px 30px;
+}
+.btn-clips{
+  width: 100%;
+  margin: 0px auto;
+  text-align: center;
+  a{
+    margin-bottom: 10px;
+    background: #3293ce;
+    height: 40px;
+    line-height: 33px;
+    text-align: center;
+    padding: 5px 30px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+}
+.list-avatar-user{
+  width: 100%;
+  text-align: center;
+}
+.saved a{
+  background: #cecece;
+}
+.saved a:hover{
+  text-decoration: none;
+}

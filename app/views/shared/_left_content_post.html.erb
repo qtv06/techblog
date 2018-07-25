@@ -22,7 +22,7 @@
                 <p class="item-descripion">
                   <%= post.description %>
                 </p>
-                <p class="time"><%= convert_date post.updated_at %> <span style="margin-left: 10px;"><i class="fa fa-comments"> <%= post.comments.count %></i></span></p>
+                <p class="time"><%= convert_datetime post.updated_at %> <span style="margin-left: 10px;"><i class="fa fa-comments"> <%= post.comments.count %></i></span></p>
                 <div class="user-info">
                   <div class="row">
                     <div class="col-md-6">

@@ -16,7 +16,7 @@
           </div>
           <div class="col-md-8">
             <div class="infor-user">
-              <p class="name"><%= user.username %></p>
+              <p class="name"><%= link_to user.username, user %></p>
               <p class="email"><%= user.email %></p>
               <p><i class="fa fa-edit" data-toggle="tooltip" data-placement="top" title="Posts"></i><%= user.count %></p>
             </div>

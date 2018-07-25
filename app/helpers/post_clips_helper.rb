@@ -1,0 +1,2 @@
+module PostClipsHelper
+end

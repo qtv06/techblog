@@ -11,12 +11,12 @@
           <div class="row">
             <div class="col-md-1">
                 <div class="small-avatar">
-                  <%= gravatar_for current_user, {size: 50} %>
+                  <%= gravatar_for @user, {size: 50} %>
                 </div>
             </div>
             <div class="col-md-11">
               <div class="item-content">
-                <p class="name-user"><%= current_user.username %></p>
+                <p class="name-user"><%= @user.username %></p>
                 <h4 class="item-title">
                   <%= link_to post.title, post_path(post) %>
                 </h4>
@@ -24,8 +24,13 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-placement="top" title="Actions"><b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><%= link_to "Delete Post", post, method: :delete, data: {confirm: "Are you sure?"}, remote: true %></li>
-                    <li><a href="#">Edit post</li>
+
+                    <% if @user == current_user %>
+                      <li><%= link_to "Delete Post", post, method: :delete, data: {confirm: "Are you sure?"}, remote: true %></li>
+                      <li><a href="#">Edit post</li>
+                    <% else %>
+                      <li><a href="#"><%= link_to "Clip the post", post_post_clips_path(post) %></li>
+                    <% end %>
                   </ul>
                 </li>
               </div>
@@ -41,5 +46,6 @@
     <li class="number-post"><p>Posts</p><span><%= @total_post %></span></li>
     <li><p>Followers</p><span>30</span></li>
     <li><p>Following users</p><span>30</span></li>
+    <li><p>Clips</p><span><%= User.number_clips @user.id %></span></li>
   </ul>
 </div>

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :setup
 
   def count_post
-    @total_post = User.number_post(current_user.id)
+    @total_post = User.number_post(@user.id)
   end
 
   protected
