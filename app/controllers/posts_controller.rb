@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: %i(show destroy)
+  before_action :find_post, only: %i(show edit update destroy)
   before_action :count_post, only: :destroy
   def index
     if params[:search_field]
@@ -34,6 +34,18 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit; end
+
+  def update
+    if @post.update post_params
+      flash[:success] = "Updated!"
+    else
+      flash[:danger] = "Some thing wrong!"
+    end
+
+    redirect_to @post
   end
 
   def destroy

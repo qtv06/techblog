@@ -27,9 +27,9 @@
 
                     <% if @user == current_user %>
                       <li><%= link_to "Delete Post", post, method: :delete, data: {confirm: "Are you sure?"}, remote: true %></li>
-                      <li><a href="#">Edit post</li>
+                      <li><%= link_to "Edit post", edit_post_path(post) %></li>
                     <% else %>
-                      <li><a href="#"><%= link_to "Clip the post", post_post_clips_path(post) %></li>
+                      <li><%= link_to "Clip the post", post_post_clips_path(post) %></li>
                     <% end %>
                   </ul>
                 </li>
