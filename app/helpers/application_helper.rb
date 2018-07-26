@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def convert_date timestamp
-    timestamp.strftime("%b %d, %Y")
-  end
-
   def convert_datetime timestamp
     timestamp.strftime("%b %d, %Y %H:%M:%p")
   end

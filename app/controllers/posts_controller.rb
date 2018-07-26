@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     @posts_related = Post.post_related @post.category_id
     @user_cliped = PostClip.user_cliped @post.id
     @post_clip_saved = PostClip.saved_by(@post.id, current_user.id)
+    @tag_of_post = Post.tags_of_post(@post.id)
   end
 
   def new
