@@ -14,7 +14,13 @@ Rails.application.routes.draw do
   end
   resources :tags, only: :show
   resources :users, only: :show
+  resources :notifications, only: %i(index) do
+    collection do
+      post :make_as_read
+    end
+  end
 
+  get "/notifications/read_all", to: "notifications#read_all", as: "notifications_list"
   namespace :admin do
     resources :posts
   end

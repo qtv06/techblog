@@ -1,7 +1,7 @@
-<div class="row">
+<div class="masonry">
   <% @categories.each do |category| %>
     <% first_post = category.posts.first %>
-    <div class="col-md-4">
+    <div class="item">
       <div class="tb-block">
         <div class="tb-block-head">
           <h4><span><%= category.category_name %></span> Posts</h4>

@@ -52,6 +52,7 @@
 .right-content{
   width: 30%;
   margin-left: 5%;
+  margin-top: 22px;
   box-sizing: border-box;
   float: left;
   .profile-stats{
@@ -376,4 +377,40 @@ span.title-tags {
 .img-post-related img {
   width: 100%;
   height: 50px;
+}
+.unread{
+  background: #f9f9f9;
+  height: 40px;
+  line-height: 40px;
+  a{
+    height: 40px;
+    line-height: 40px;
+  }
+}
+.dropdown-menu{
+  h5{
+    background: #ffffff;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0px;
+    padding: 20px;
+  }
+}
+.list-notification {
+  padding: 20px;
+  h4{
+    height: 40px;
+    line-height: 40px;
+    background:  white;
+    border-bottom: 4px solid #ffd4d8;
+    margin: 0px -15px;
+    padding: 0px 10px;
+    margin-bottom: 5px;  }
+  .row{
+    background: white;
+    margin-bottom: 5px;
+  }
+}
+.list-notification .col-md-2 {
+  text-align: center;
 }

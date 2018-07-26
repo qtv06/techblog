@@ -1,0 +1,14 @@
+<div class="list-notification">
+  <h4>Your notifications</h4>
+  <% @notifications.each do |notification|%>
+    <div class="row">
+      <div class="col-md-2">
+        <%= gravatar_for notification.actor, {size: 40}%>
+      </div>
+      <div class="col-md-10">
+        <p><%= notification.actor.username %> <%= notification.recipient.email %></p>
+        <p><%= convert_datetime notification.created_at %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

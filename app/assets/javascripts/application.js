@@ -18,4 +18,4 @@
 //= require ckeditor/init
 //= require htmlsortable
 //= require turbolinks
-//= require_tree .
+// = require_tree .

@@ -25,6 +25,14 @@
       <div class="action-user">
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
+            <li class="dropdown" data-behavior="notifications" style="margin-top: 20px;">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-behavior="notifications-link"><i class="fa fa-bell-o"></i><span data-behavior="notifications-unread"></span></a>
+              <ul class="dropdown-menu" data-behavior="notifications-item">
+                <hr>
+                <li><%= link_to "See all", notifications_list_path %></a>
+                </li>
+              </ul>
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for current_user, {size: 50} %></a>
               <ul class="dropdown-menu">
