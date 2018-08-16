@@ -69,7 +69,8 @@ class PostsController < ApplicationController
   end
 
   def find_post
-    @post = Post.find_by id: params[:id]
+    # @post = Post.find_by id: params[:id]
+    @post = Post.find_by slug: params[:slug]
     redirect_to current_user if @post.blank?
   end
 end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "static_pages/home"
 
   resources :categories, only: :show
-  resources :posts do
+  resources :posts, param: :slug do
     resources :comments
     resources :post_clips, only: :create
   end

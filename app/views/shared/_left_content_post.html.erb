@@ -17,7 +17,7 @@
             <div class="col-md-7">
               <div class="item-content">
                 <h4 class="item-title">
-                  <%= link_to post.title, post_path(post) %>
+                  <%= link_to post.title, post_path(slug: post.slug) %>
                 </h4>
                 <p class="item-descripion">
                   <%= post.description %>

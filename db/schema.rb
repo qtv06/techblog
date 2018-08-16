@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_26_022152) do
+ActiveRecord::Schema.define(version: 2018_08_16_042346) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "category_name"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2018_07_26_022152) do
     t.string "link"
     t.bigint "category_id"
     t.bigint "user_id"
+    t.string "slug"
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

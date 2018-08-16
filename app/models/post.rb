@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  attr_accessor :title, :slug
   belongs_to :category
   belongs_to :user
   has_many :post_tags, dependent: :destroy
@@ -15,4 +16,16 @@ class Post < ApplicationRecord
 
   # mount_uploader :image, CkeditorPictureUploader
   mount_uploader :image, ImageUploader
+
+  def to_slug string
+    string.parameterize.truncate(80, omission: '')
+  end
+
+  def to_param
+    slug
+  end
+
+  def self.add_slugs
+    Post.update_all(slug: to_slug('How to using SweetAlert2 in Javascript'))
+  end
 end
