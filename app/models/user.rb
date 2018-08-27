@@ -13,4 +13,13 @@ class User < ApplicationRecord
   scope :number_clips, -> (user_id){joins(:post_clips).where("users.id = ?", user_id).count}
 
   scope :commented_at, -> (post_id){joins(:comments).where("post_id = ?", post_id)}
+
+  class << self
+    def from_omniauth(auth_hash)
+      user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
+      user.email = auth_hash['info']['email']
+      user.save!
+      user
+    end
+  end
 end

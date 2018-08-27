@@ -21,6 +21,7 @@ gem "devise"
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'ckeditor'
+gem "omniauth-facebook"
 # gem "bcrypt", "~> 3.1.7"
 # gem "mini_magick", "~> 4.8"
 # gem "capistrano-rails", group: :development

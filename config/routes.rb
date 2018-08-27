@@ -24,5 +24,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :posts
   end
+  get '/auth/:provider/callback', :to => 'sessions#create'
+  get '/auth/failure', :to => 'sessions#failure'
   root "static_pages#home"
 end
