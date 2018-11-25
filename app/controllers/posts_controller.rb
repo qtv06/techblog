@@ -1,21 +1,26 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: %i(show edit update destroy)
+  before_action :find_post, except: %i(index new create)
   before_action :count_post, only: :destroy
+  before_action :authenticate_user!, except: %i(index show)
+
   def index
-    if params[:search_field]
-      @posts = Post.search params[:search_field]
+    if params[:q]
+      @search = Post.search params[:q]
+      @posts = @search.result
       redirect_to posts_path && return
     else
       @posts = Post.includes(:comments)
       redirect_to root_path && return
     end
+    # @posts = Post.limit(5)
   end
 
   def show
     @posts_related = Post.post_related @post.category_id
     @user_cliped = PostClip.user_cliped @post.id
-    @post_clip_saved = PostClip.saved_by(@post.id, current_user.id)
+    @post_clip_saved = current_user ? PostClip.saved_by(@post.id, current_user.id) : []
     @tag_of_post = Post.tags_of_post(@post.id)
+
   end
 
   def new

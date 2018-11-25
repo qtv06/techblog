@@ -1,4 +1,9 @@
+<% if current_user %>
 <%= form_for [@post, @post.comments.build], remote: true do |f| %>
   <%= f.text_area :content, placeholder: "Say some thing...", rows: "5", class: "form-control" %>
   <%= f.submit "Post comment", class: "btn btn-info" %>
+<% end %>
+
+<% else %>
+  <h3>Đăng nhập để bình luận</h3>
 <% end %>

@@ -3,7 +3,7 @@
     <% comments.each do |comment| %>
       <% if comment.user %>
         <div class="item-comment item-comment-<%= comment.id %>">
-          <p><%= gravatar_for(comment.user, {size: 50}) %><span class="name-user"><%= comment.user.username %></span> <span class="time-post"><%= convert_datetime comment.created_at if comment %></span></p>
+          <p><%= gravatar_for(comment.user, {size: 50}) %><span class="name-user"><%= comment.user.username %></span> <span class="time-post"><%= convert_datetime comment.created_at if comment.present? %></span></p>
           <p class="comment-content"><%= comment.content %></p>
           <% if comment.user == current_user %>
             <div class="form-edit">

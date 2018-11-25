@@ -1,11 +1,11 @@
 <div class="search-form">
   <div class="row">
-    <%= form_tag(posts_path, method: :get) do %>
+    <%= search_form_for @q do |f| %>
       <div class="col-md-10">
-        <%= text_field_tag :search_field, params[:search_field], placeholder: "Search Posts", class: "form-control" %>
+        <%= f.text_field :title_cont, placeholder: "Search Posts", class: "form-control" %>
       </div>
       <div class="col-md-2">
-        <%= submit_tag "Search", name: nil, class: "btn-submit" %>
+        <%= f.submit "Search", name: nil, class: "btn-submit" %>
       </div>
     <% end %>
   </div>

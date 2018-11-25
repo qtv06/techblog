@@ -38,14 +38,12 @@
               <ul class="dropdown-menu">
                 <li><a href="#">Settings</a></li>
                 <li><%= link_to "My Posts", user_path(current_user) %></li>
-                <li><a href="#">Something else here</a></li>
-                <li><a href="#">Separated link</a></li>
                 <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li class="user-action"><%= link_to "Sign in", new_user_session_path %></li>
+            <li class="user-action"><%= link_to "Sign up", new_user_registration_path %></li>
           <% end %>
         </ul>
       </div>

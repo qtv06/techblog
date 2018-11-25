@@ -11,7 +11,7 @@
             <%= image_tag first_post.image.url %>
           </div>
           <div class="tb-block-main-content">
-            <p class="break-word"><%= link_to first_post.title, "#" %></p>
+            <p class="break-word"><%= link_to first_post.title, post_path(first_post) %></p>
             <div class="row">
               <div class="user-info">
                 <div class="col-md-6">
@@ -30,9 +30,9 @@
           </div>
           <hr>
           <div class="tb-block-main-release">
-            <% Post.get_all_post_exept_first_post(category.id, category.posts.first.id).each do |post| %>
+            <% Post.get_all_post_except_first_post(category.id, category.posts.first.id).each do |post| %>
               <div class="tb-block-main-release-item">
-                <p class="nowrap"><%= link_to post.title, "#" %></p>
+                <p class="nowrap"><%= link_to post.title, post_path(post) %></p>
                 <div class="row">
                   <div class="user-info">
                     <div class="col-md-6">
